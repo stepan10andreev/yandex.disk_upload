@@ -1,5 +1,3 @@
 YaSendSuggestToken(
-    'http://localhost:3000', {
-    flag: true
-}
+    'http://localhost:3000'
 )
