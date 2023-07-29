@@ -1,0 +1,32 @@
+.input {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 14px;
+    color: var(--yellow-color);
+}
+
+.label {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.fileList {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+}
