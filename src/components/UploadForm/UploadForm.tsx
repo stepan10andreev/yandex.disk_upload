@@ -9,6 +9,7 @@ import { UIText } from '../ui-components/UIText/UIText'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import { uploadFiles } from '@/utils/uploadFiles'
+import { ErrorText } from '../ui-components/ErrorText/ErrorText'
 
 interface IUploadForm {
     token: string;
@@ -22,6 +23,7 @@ export interface IFile {
 
 export const UploadForm: FC<IUploadForm> = ({ token }) => {
     const [files, setFiles] = useState<IFile[]>([]);
+    const [error, setError] = useState('');
 
     const router = useRouter();
 
@@ -33,9 +35,10 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
     const handleSubmit: FormEventHandler = async (event) => {
         event.preventDefault();
         const filesData = files.map(file => file.file);
-        console.log(filesData)
         // проверку на наличие токена не нужно так как форма появляется только при наличии токена
-        uploadFiles(filesData, token)
+        const errorMessage = await uploadFiles(filesData, token)
+        errorMessage ? setError(errorMessage) : setError('')
+        !errorMessage && setFiles([]);
     }
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -57,6 +60,8 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
             />
 
             <UIButton text='Загрузить на Яндекс.Диск' disabled={files.length === 0} />
+
+            {error && (<ErrorText errorText={error}/>)}
         </form>
     )
 }

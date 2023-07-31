@@ -2,12 +2,14 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
+    gap: 8px;
     position: relative;
     width: 100%;
     border: 3px solid var(--blue-color);
     border-radius: 10px;
 
     & > button {
+        margin-top: 20px;
         max-width: 300px;
         align-self: center;
     }

@@ -9,17 +9,20 @@ export const uploadFiles = async (files: File[], token: string) => {
             })
 
             const data = await response.json();
-
+            
             // console.log(data)
+
+            if (!response.ok) {
+                return data.message;
+            }
 
             const upload = await fetch(`${data.href}`, {
                 method: 'PUT',
                 body: file
             })
 
-            console.log(await upload.json())
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
     }
 }
