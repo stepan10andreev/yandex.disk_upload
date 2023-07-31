@@ -10,7 +10,7 @@ export const uploadFiles = async (files: File[], token: string) => {
 
             const data = await response.json();
 
-            console.log(data)
+            // console.log(data)
 
             const upload = await fetch(`${data.href}`, {
                 method: 'PUT',

@@ -6,16 +6,18 @@ interface IUIButton {
   type?: 'button' | 'submit' | 'reset';
   name?: string;
   onClick?: () => void;
-  icon?: React.JSX.Element
+  icon?: React.JSX.Element;
+  disabled?: boolean;
 }
 
-export const UIButton: FC<IUIButton> = ({ text, type, name, onClick, icon }) => {
+export const UIButton: FC<IUIButton> = ({ text, type, name, onClick, icon, disabled }) => {
   return (
     <button
       className={styles.button}
       type={type}
       name={name}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
       {icon}

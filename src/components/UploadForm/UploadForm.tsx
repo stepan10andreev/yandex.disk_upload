@@ -27,12 +27,13 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
 
     useEffect(() => {
         router.replace('/')
-        setCookie('yandexToken', token, { maxAge: 60 * 6 });
+        setCookie('yandexToken', token, { maxAge: 60 * 60 });
     }, [])
 
     const handleSubmit: FormEventHandler = async (event) => {
         event.preventDefault();
         const filesData = files.map(file => file.file);
+        console.log(filesData)
         // проверку на наличие токена не нужно так как форма появляется только при наличии токена
         uploadFiles(filesData, token)
     }
@@ -55,7 +56,7 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
                 onChange={handleChange}
             />
 
-            <UIButton text='Загрузить на Яндекс.Диск' />
+            <UIButton text='Загрузить на Яндекс.Диск' disabled={files.length === 0} />
         </form>
     )
 }

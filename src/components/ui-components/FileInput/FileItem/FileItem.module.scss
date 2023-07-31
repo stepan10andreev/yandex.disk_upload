@@ -1,7 +1,10 @@
 .wrapper {
+    padding: 10px;
     display: flex;
     align-items: center;
     gap: 7px;
+    border-radius: 8px;
+    background-color: var(--turquoise);
 
     & > p {
         margin: 0;
@@ -15,5 +18,18 @@
         align-items: center;
         justify-content: center;
         justify-items: center;
+
+        & > svg > path {
+            transition: 0.3s;
+        }
+      
+        &:focus-visible > svg > path,
+        &:hover > svg > path {
+            fill: var(--red-light);
+        }
+
+        &:active > svg > path{
+            fill: var(--red-accept);
+        }
     }
 }

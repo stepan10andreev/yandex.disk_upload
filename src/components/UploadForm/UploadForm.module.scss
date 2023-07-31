@@ -4,8 +4,13 @@
     flex-direction: column;
     position: relative;
     width: 100%;
-    border: 3px solid var(--form-border);
+    border: 3px solid var(--blue-color);
     border-radius: 10px;
+
+    & > button {
+        max-width: 300px;
+        align-self: center;
+    }
 }
 
 .yandexAuthBtn {
