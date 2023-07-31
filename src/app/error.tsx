@@ -1,5 +1,4 @@
 'use client'
-
 import { Content } from '@/components/ui-components/Content/Content'
 import { useEffect } from 'react'
 import styles from './page.module.scss'
@@ -11,7 +10,7 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
-  
+
   useEffect(() => {
     console.error(error)
   }, [error])
@@ -25,7 +24,7 @@ export default function Error({
             () => reset()
           }
         >
-          Try again
+          Go Home
         </button>
       </div>
     </Content>

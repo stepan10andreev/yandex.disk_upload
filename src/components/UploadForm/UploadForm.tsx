@@ -1,15 +1,13 @@
 'use client'
 import React, { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from 'react'
 import styles from './UploadForm.module.scss'
-import { UIInput } from '../ui-components/UIInput/UIInput'
 import { FileInput } from '../ui-components/FileInput/FileInput'
 import { UIButton } from '../ui-components/UIButton/UIButton'
-import { getFormData } from '@/utils/getFormData'
-import { UIText } from '../ui-components/UIText/UIText'
 import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/navigation'
 import { uploadFiles } from '@/utils/uploadFiles'
 import { ErrorText } from '../ui-components/ErrorText/ErrorText'
+import { BeatLoader } from 'react-spinners'
 
 interface IUploadForm {
     token: string;
@@ -24,6 +22,7 @@ export interface IFile {
 export const UploadForm: FC<IUploadForm> = ({ token }) => {
     const [files, setFiles] = useState<IFile[]>([]);
     const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(false);
 
     const router = useRouter();
 
@@ -35,8 +34,12 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
     const handleSubmit: FormEventHandler = async (event) => {
         event.preventDefault();
         const filesData = files.map(file => file.file);
+
         // проверку на наличие токена не нужно так как форма появляется только при наличии токена
+        setLoading(true)
         const errorMessage = await uploadFiles(filesData, token)
+        setLoading(false)
+
         errorMessage ? setError(errorMessage) : setError('')
         !errorMessage && setFiles([]);
     }
@@ -61,7 +64,9 @@ export const UploadForm: FC<IUploadForm> = ({ token }) => {
 
             <UIButton text='Загрузить на Яндекс.Диск' disabled={files.length === 0} />
 
-            {error && (<ErrorText errorText={error}/>)}
+            {isLoading && <div className={styles.center}><BeatLoader color="#4f59a6" /></div>}
+
+            {error && (<ErrorText errorText={error} />)}
         </form>
     )
 }

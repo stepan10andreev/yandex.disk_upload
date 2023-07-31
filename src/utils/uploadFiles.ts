@@ -9,7 +9,7 @@ export const uploadFiles = async (files: File[], token: string) => {
             })
 
             const data = await response.json();
-            
+
             // console.log(data)
 
             if (!response.ok) {

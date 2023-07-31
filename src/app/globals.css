@@ -2,20 +2,18 @@
 
 
 :root {
-  --white:                      #FFFFFF;
-  --red-light:                  rgb(255 59 59);
-  --red-accept:                 rgba(194, 0, 0, 0.764);
-  --turquoise:                  rgb(194 202 255);
-  --text-color:                 #333333;
-  --blue-color:                 #4f59a6;
-  --blue-light:                 #b3bcff;
-  --form-border:                #c3b400;
-  --yellow-color:               #c0991e;
-  --yellow-light-color:         rgb(224, 185, 69);
-  --input-hover:                #bebebe;
-  --gray:                       #959595;
-  --body-bg:                    #dcdcdc82;
-  --error-text-color:           rgb(165, 0, 0);
+  --white: #FFFFFF;
+  --red-light: rgb(255 59 59);
+  --red-accept: rgba(194, 0, 0, 0.764);
+  --turquoise: rgb(194 202 255);
+  --text-color: #333333;
+  --blue-color: #4f59a6;
+  --blue-light: #b3bcff;
+  --yellow-color: #c0991e;
+  --yellow-light-color: rgb(224, 185, 69);
+  --gray: #959595;
+  --body-bg: #dcdcdc82;
+  --error-text-color: rgb(165, 0, 0);
 }
 
 body {
@@ -26,7 +24,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  background-color: var( --body-bg);
+  background-color: var(--body-bg);
 }
 
 * {

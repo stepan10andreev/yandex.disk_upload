@@ -7,7 +7,7 @@ export const AuthYandexButton = () => {
   return (
     <a href={`https://oauth.yandex.ru/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}`} className={styles.button}>
       <YandexIcon />
-      <UIText text='Войти с Яндекс ID'/>
+      <UIText text='Войти с Яндекс ID' />
     </a>
   )
 }

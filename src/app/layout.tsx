@@ -21,7 +21,6 @@ export default function RootLayout({
           <Title text='Загрузчик файлов на Яндекс.Диск' />
         </Header>
         {children}
-
       </body>
     </html>
   )

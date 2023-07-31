@@ -6,8 +6,8 @@ import styles from './AuthBlock.module.scss'
 export const AuthBlock = () => {
   return (
     <div className={styles.wrapper}>
-        <UIText text='Для загрузки файлов необходимо авторизоваться:'/>
-        <AuthYandexButton />
+      <UIText text='Для загрузки файлов необходимо авторизоваться:' />
+      <AuthYandexButton />
     </div>
   )
 }

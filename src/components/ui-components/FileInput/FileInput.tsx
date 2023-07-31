@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, MouseEventHandler, useState } from 'react'
+import React, { ChangeEventHandler, FC } from 'react'
 import styles from './FileInput.module.scss'
 import { UploadIcon } from '../Icons/UploadIcon'
 import { FileItem } from './FileItem/FileItem'

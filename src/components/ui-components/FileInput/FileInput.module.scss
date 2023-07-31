@@ -25,37 +25,37 @@
     width: fit-content;
     overflow: hidden;
 
-    & > span:first-child {
+    &>span:first-child {
         padding: 3px;
         border-right: 1px solid var(--blue-color);
         transition: 0.35s;
     }
 
-    &  > span:first-child > svg > g {
+    &>span:first-child>svg>g {
         transition: 0.35s;
     }
 
-    & > span:first-child {
+    &>span:first-child {
         background-color: var(--blue-color);
     }
 
-    & > span:nth-child(2) {
+    &>span:nth-child(2) {
         padding: 6px;
         line-height: normal;
         color: var(--text-color);
         transition: 0.35s;
     }
 
-    & > span:first-child > svg > g {
+    &>span:first-child>svg>g {
         fill: var(--gray);
     }
 
-    &:hover > span:nth-child(2) {
+    &:hover>span:nth-child(2) {
         color: var(--blue-color);
         background-color: var(--blue-light);
     }
 
-    &:hover > span:first-child > svg > g {
+    &:hover>span:first-child>svg>g {
         fill: var(--white);
     }
 
@@ -69,4 +69,10 @@
     align-items: center;
     justify-content: space-between;
     justify-items: center;
+}
+
+@media (max-width: 400px) {
+    .text {
+        font-size: 15px;
+    }
 }
