@@ -1,2 +1,23 @@
-# yandex.disk_upload
-File Uploader for yandex.disk
+# Кастомный загрузчик файлов на Яндекс.Диск
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width='30'/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" width='30'/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"  width='30'/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width='30'/>
+
+## Описание
+
+Компонент для загрузки файлов на `Яндекс.Диск` пользователя, подключенный к [API Яндекс ID](https://yandex.ru/dev/id/doc/ru/how-to)
+
+Для загрузки файлов необходимо авторизоваться через кнопку `Войти с Яндекс ID` на главной страницы. Сервисы Яндекса авторизуют приложения по токенам по протоколу [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4). 
+
+При нажатии на кнопку `Войти с Яндекс ID` приложение перенаправляет пользователя в Яндекс OAuth для получения разрешения на доступ к данным аккаунта пользователя на Яндексе. В данном приложении настроен запрос к получению:
+  - Чтение всего Диска
+  - Запись в любом месте на Диске
+  - Доступ к логину, имени и фамилии, полу
+
+При согласии пользователя - происходит переадресация обратно на главную страницу приложения, где появляется форма для загрузки файлов. Приложение получает OAuth-токен с правами доступа к API Яндекс ID, который сохраняется.
+
+Для загрузки файлов на Яндекс.Диск пользователя используется [API Яндекс.Диск](https://yandex.ru/dev/disk/).
+
+При возникновении ошибки при отправки - под кнопкой в форме появляется сообщение соотвествующей ошибки.
+
+
+
