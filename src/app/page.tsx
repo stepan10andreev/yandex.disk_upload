@@ -2,6 +2,7 @@ import { cookies } from 'next/headers'
 import { Content } from '@/components/ui-components/Content/Content'
 import { UploadForm } from '@/components/UploadForm/UploadForm'
 import { AuthBlock } from '@/components/AuthBlock/AuthBlock'
+import { ErrorText } from '@/components/ui-components/ErrorText/ErrorText'
 
 const getToken = async (code: string) => {
   const response = await fetch(`https://oauth.yandex.ru/token`, {
@@ -44,6 +45,10 @@ export default async function Home({ searchParams }: { searchParams: { [key: str
         <UploadForm token={token} />
       ) : (
         <AuthBlock />
+      )}
+
+      {searchParams.error && (
+        <ErrorText errorText={`${searchParams.error}: ${searchParams.error_description}`}/>
       )}
 
     </Content>
