@@ -9,10 +9,6 @@ import { AuthYandexButton } from '@/components/ui-components/AuthYandexButton/Au
 export default function Home() {
   return (
     <>
-      {/* <Header>
-        <Title text='Загрузчик файлов на Яндекс.Диск' />
-      </Header> */}
-
       <Content>
         <AuthYandexButton />
         {/* <UploadForm /> */}

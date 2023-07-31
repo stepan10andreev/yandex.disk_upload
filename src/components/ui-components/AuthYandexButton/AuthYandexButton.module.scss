@@ -9,8 +9,13 @@
     background-color: #000000;
     border-radius: 12px;
 
-    & > span {
+    &>span {
         font-size: 18px;
         color: #FFFFFF;
+    }
+
+    &:hover span {
+        color: #c4c4c4;
+        transition: 0.3s;
     }
 }
