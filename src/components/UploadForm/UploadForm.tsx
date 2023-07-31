@@ -1,17 +1,24 @@
 'use client'
-import React, { FormEventHandler, useEffect, useState } from 'react'
+import React, { FC, FormEventHandler, useEffect, useState } from 'react'
 import styles from './UploadForm.module.scss'
 import { UIInput } from '../ui-components/UIInput/UIInput'
 import { FileInput } from '../ui-components/FileInput/FileInput'
 import { UIButton } from '../ui-components/UIButton/UIButton'
 import { getFormData } from '@/utils/getFormData'
 import { UIText } from '../ui-components/UIText/UIText'
+import { setCookie } from 'cookies-next'
+import { useRouter } from 'next/navigation'
 
-export const UploadForm = () => {
-    const [isAuth, setIsAuth] = useState(false)
+interface IUploadForm {
+    token: string;
+}
+
+export const UploadForm: FC<IUploadForm> = ({ token }) => {
+    const router = useRouter();
 
     useEffect(() => {
-        localStorage.getItem('yandexToken') ? setIsAuth(true) : setIsAuth(false);
+        router.replace('/')
+        setCookie('yandexToken', token, {maxAge: 60 * 6 });
     }, [])
 
     const handleSubmit: FormEventHandler = async (event) => {
@@ -27,8 +34,7 @@ export const UploadForm = () => {
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <FileInput />
-
-
+            
             <UIButton text='Загрузить на Яндекс.Диск' />
         </form>
     )
