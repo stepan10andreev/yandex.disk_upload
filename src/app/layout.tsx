@@ -1,6 +1,7 @@
+import { Header } from '@/components/ui-components/Header/Header'
 import './globals.css'
 import type { Metadata } from 'next'
-import Script from 'next/script'
+import { Title } from '@/components/ui-components/Title/Title'
 
 
 export const metadata: Metadata = {
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Header>
+          <Title text='Загрузчик файлов на Яндекс.Диск' />
+        </Header>
         {children}
-        <Script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js"></Script>
-        <Script src="/auth.js"></Script>
+
       </body>
     </html>
   )
